@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200..800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>🔐 Generate a <br><span>random password</span></h1>
+            <p>Never use an insecure password again</p>
+            <div id="container-options">
+                <button id="generate-btn" onclick="generatePasswords()">Generate passwords</button>
+                <button id="settings-toggle" onclick="settingsToggle()">
+                    <span>⚙️ Settings</span>
+                    <span id="arrow">▼</span>
+                </button>
+            </div>
+            
+            <div id="settings-panel">
+                <div id="settings-content">
+                    <div id="length-control">
+                        <label for="lengthSlider">Password Length: </label>
+                        <div id="length-right">
+                            <input 
+                                id="lengthSlider"
+                                type="range"
+                                min="8"
+                                max="64"
+                                value="15"
+                                oninput="updateLength(this.value)"
+                            >
+                            <span id="length-display">15</span>
+                        </div>
+                    </div>
+                    <div id="checkbox-grp">
+                        <label for="include-numbers">
+                            <input
+                                id="include-numbers"
+                                type="checkbox"
+                                checked
+                                onchange="updateSettings()"
+                            >
+                            Include Numbers
+                        </label>
+                        
+                        <label for="include-symbols">
+                            <input
+                                id="include-symbols"
+                                type="checkbox"
+                                checked
+                                onchange="updateSettings()"
+                            >
+                            Include Symbols
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div id="passwords-container">
+                <div>
+                    <div class="password-label">Password 1</div>
+                    <div id="password-1" 
+                        class="password-box empty"
+                        role="button"
+                        aria-label="Click to copy password 1"
+                        tabindex="0"
+                        onclick="copyPasswords('password-1')"
+                        onkeypress="handleKeyPress(event, 'password-1')"
+                        >
+                        <div class="password-text"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="password-label">Password 2</div>
+                    <div id="password-2"
+                        class="password-box empty"
+                        role="button"
+                        aria-label="click to copy password 2"
+                        tabindex="0"
+                        onclick="copyPasswords('password-2')"
+                        onkeypress="handleKeyPress(event, 'password-2')"
+                        >
+                        <div class="password-text"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="notification-el">Copied To clipboard!</div>
+        <script src="index.js"></script>
+    </body>
+</html>
