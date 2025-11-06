@@ -76,7 +76,7 @@ span {
     border-radius: 5px;
     padding: 13px 10px;
     font-size: 12px;
-    transition: all 02.s;
+    transition: all 0.2s;
     cursor: pointer;
     margin-bottom: 15px;
     display: flex;
